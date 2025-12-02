@@ -1,17 +1,17 @@
 "use client";
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import WhatWeDo from "./components/WhatWeDo";
-import Services from "./components/Services";
-import Courses from "./components/Courses";
-import Mission from "./components/Mission";
-import Contact from "./components/Contact";
-import ContactInfo from "./components/ContactInfo";
-import WhyLearn from "./components/WhyLearn";
-import FAQ from "./components/FAQ";
-import WhyChooseUs from "./components/WhyChooseUs";
-import Footer from "./components/Footer";
+import Navbar from "./com/Navbar";
+import Hero from "./com/Hero";
+import About from "./com/About";
+import WhatWeDo from "./com/WhatWeDo";
+import Services from "./com/Services";
+import Courses from "./com/Courses";
+import Mission from "./com/Mission";
+import Contact from "./com/Contact";
+import ContactInfo from "./com/ContactInfo";
+import WhyLearn from "./com/WhyLearn";
+import FAQ from "./com/FAQ";
+import WhyChooseUs from "./com/WhyChooseUs";
+import Footer from "./com/Footer";
 export default function Home() {
   return (
     <main className="content-with-top-menu">
@@ -38,7 +38,7 @@ export default function Home() {
           </p>
 
           <a
-            href="https://calendly.com/prakash-connect06/30min" // ⬅ Replace this with your real Calendly link
+            href="https://calendly.com/orbitalpaintsolutions" // ⬅ Replace this with your real Calendly link
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold px-8 py-4 rounded-full transition-all duration-300 shadow-md hover:shadow-xl transform hover:scale-105"
