@@ -1,6 +1,6 @@
 // app/book/page.tsx
-import Header from "../../com/Header";
-import Footer from "../../com/Footer";
+import Header from "../com/Hero";
+import Footer from "../com/Footer";
 
 export default function Book() {
   return (
