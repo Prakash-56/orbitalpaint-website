@@ -1,65 +1,93 @@
-import Image from "next/image";
-
+"use client";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import WhatWeDo from "./components/WhatWeDo";
+import Services from "./components/Services";
+import Courses from "./components/Courses";
+import Mission from "./components/Mission";
+import Contact from "./components/Contact";
+import ContactInfo from "./components/ContactInfo";
+import WhyLearn from "./components/WhyLearn";
+import FAQ from "./components/FAQ";
+import WhyChooseUs from "./components/WhyChooseUs";
+import Footer from "./components/Footer";
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="content-with-top-menu">
+      <Navbar />
+      <Hero />
+      <About />
+      <WhatWeDo />
+      <Services />
+      <Courses />
+      <Mission />
+      <Contact />
+      <ContactInfo />
+      <WhyLearn />
+      <section className="w-full mt-16 bg-gray-100 py-14 px-6 rounded-2xl shadow-lg">
+        <div className="max-w-4xl mx-auto text-center">
+
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+            Schedule an Appointment
+          </h2>
+
+          <p className="text-gray-600 text-lg md:text-xl mb-8">
+            Schedule a professional site visit or consultation with Orbital Paint Solutions.
+            Pick a time that works best for you — quick, easy, and fully online.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
+
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://calendly.com/prakash-connect06/30min" // ⬅ Replace this with your real Calendly link
             target="_blank"
             rel="noopener noreferrer"
+            className="inline-block bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold px-8 py-4 rounded-full transition-all duration-300 shadow-md hover:shadow-xl transform hover:scale-105"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
+            Book an Appointment
           </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+          <p className="mt-6 text-gray-500 text-sm leading-relaxed">
+            Once you click the button, you'll be redirected to Calendly where you can
+            choose your preferred date & time. Our team will confirm the appointment instantly.
+          </p>
+
         </div>
-      </main>
+      </section>
+    <section className="w-full py-20 px-6 bg-white">
+  <div
+    className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10 
+               opacity-0 animate-fadeInUp"
+  >
+    {/* Founder Image */}
+    <div className="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden shadow-xl">
+      <img
+        src="/founder.png"  
+        alt="Founder"
+        className="w-full h-full object-cover"
+      />
     </div>
+
+    {/* Text */}
+    <div className="flex-1 text-center md:text-left">
+      <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+        Founder’s Talk
+      </h2>
+
+      <p className="text-gray-600 text-lg italic leading-relaxed mb-6">
+        "In aerospace, precision isn’t a choice - it’s a promise. 
+        At OrbitalPaint Solutions, we don’t just coat the surface; we craft protection that takes flight."
+      </p>
+
+      <h3 className="text-xl font-semibold text-gray-900">
+        — Mirzasayeed Beg, Founder & COO
+        </h3>
+      </div>
+     </div>
+     </section>
+       <FAQ />
+      <WhyChooseUs />
+      <Footer />
+    </main>
   );
 }
+
