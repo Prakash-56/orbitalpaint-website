@@ -108,7 +108,7 @@ We bridge the gap between scientific research, industrial application, and aviat
         viewport={{ once: true }}
       >
         <img
-          src="/Co-founder.png"
+          src="/images/Co-founder.png"
           alt="Co-Founder"
           className="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover shadow-lg mx-auto md:mx-0"
         />
