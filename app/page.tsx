@@ -7,10 +7,10 @@ import Services from "./com/Services";
 import Courses from "./com/Courses";
 import Mission from "./com/Mission";
 import Contact from "./com/Contact";
-import ContactInfo from "./com/ContactInfo";
 import WhyLearn from "./com/WhyLearn";
 import FAQ from "./com/FAQ";
 import WhyChooseUs from "./com/WhyChooseUs";
+import ContactInfo from "./com/ContactInfo";
 import Footer from "./com/Footer";
 export default function Home() {
   return (
@@ -23,7 +23,6 @@ export default function Home() {
       <Courses />
       <Mission />
       <Contact />
-      <ContactInfo />
       <WhyLearn />
       <section className="w-full mt-16 bg-gray-100 py-14 px-6 rounded-2xl shadow-lg">
         <div className="max-w-4xl mx-auto text-center">
@@ -86,6 +85,7 @@ export default function Home() {
      </section>
        <FAQ />
       <WhyChooseUs />
+      <ContactInfo />
       <Footer />
     </main>
   );
