@@ -4,6 +4,6 @@ export default function robots() {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://orbitalpaintsolutionc.com/sitemap.xml",
+    sitemap: "https://orbitalpaintsolutions.com/sitemap.xml",
   };
 }
