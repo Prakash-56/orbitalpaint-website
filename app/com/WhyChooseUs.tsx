@@ -30,12 +30,14 @@ const stats = [
 export default function WhyChooseUs() {
   const [values, setValues] = useState(stats.map(() => 0));
 
+  // Count-up animation
   useEffect(() => {
     stats.forEach((stat, i) => {
       let start = 0;
       const end = stat.animateTo;
-      const duration = 2000;
-      const increment = end / (duration / 30);
+      const duration = 2000; // 2 seconds
+      const stepTime = 20; // 50fps
+      const increment = end / (duration / stepTime);
 
       const interval = setInterval(() => {
         start += increment;
@@ -48,18 +50,18 @@ export default function WhyChooseUs() {
           updated[i] = Number(start.toFixed(1));
           return updated;
         });
-      }, 30);
+      }, stepTime);
     });
   }, []);
 
   return (
-    <section className="py-20 bg-gray-100">
+    <section className="py-20 bg-gray-100 perspective-1000">
       <div className="max-w-6xl mx-auto px-6">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-4xl font-semibold text-center mb-10"
+          className="text-4xl font-semibold text-center mb-10 text-[#0A1F44]"
         >
           Why Choose Us
         </motion.h2>
@@ -68,12 +70,31 @@ export default function WhyChooseUs() {
           {stats.map((stat, i) => (
             <motion.div
               key={i}
+              className="bg-[#061A33] text-white rounded-2xl p-8 text-center shadow-2xl cursor-pointer transform-style-preserve-3d"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="bg-[#061A33] text-white rounded-2xl p-8 text-center shadow-lg"
+              whileHover={{
+                rotateY: 10,
+                rotateX: -10,
+                scale: 1.05,
+                transition: { type: "spring", stiffness: 200, damping: 20 },
+              }}
+              onMouseMove={(e) => {
+                const card = e.currentTarget;
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const rotateY = ((x / rect.width) * 30 - 15); // -15 to 15 deg
+                const rotateX = ((y / rect.height) * 30 - 15) * -1;
+                card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+              }}
+              onMouseLeave={(e) => {
+                const card = e.currentTarget;
+                card.style.transform = `rotateX(0deg) rotateY(0deg) scale(1)`;
+              }}
             >
-              {/* Number */}
+              {/* Number with count-up */}
               <div className="text-4xl font-bold text-yellow-400">
                 {values[i]}
                 {stat.suffix}
