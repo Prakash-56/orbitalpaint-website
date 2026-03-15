@@ -35,7 +35,7 @@ export default function Home() {
 
           <p className="text-gray-600 text-lg md:text-xl mb-8">
             Schedule a professional site visit or consultation with Orbital Paint Solutions.
-            Pick a time that works best for you — quick, easy, and fully online.
+            Pick a time that works best for you - quick, easy, and fully online.
           </p>
 
           <a
