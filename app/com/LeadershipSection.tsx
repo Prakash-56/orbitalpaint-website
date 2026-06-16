@@ -2,10 +2,10 @@
 import { useEffect, useRef } from "react";
 
 export default function LeadershipSection() {
-  const cardRefs = useRef([]);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
-    const observers = [];
+    const observers: IntersectionObserver[] = [];
 
     cardRefs.current.forEach((card, i) => {
       if (!card) return;
@@ -23,13 +23,13 @@ export default function LeadershipSection() {
       observers.push(observer);
     });
 
-    const moveHandlers = new Map();
-    const leaveHandlers = new Map();
+    const moveHandlers = new Map<HTMLDivElement, (e: MouseEvent) => void>();
+    const leaveHandlers = new Map<HTMLDivElement, () => void>();
 
     cardRefs.current.forEach((card) => {
       if (!card) return;
 
-      const onMove = (e) => {
+      const onMove = (e: MouseEvent) => {
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
@@ -55,8 +55,10 @@ export default function LeadershipSection() {
       observers.forEach((o) => o.disconnect());
       cardRefs.current.forEach((card) => {
         if (!card) return;
-        if (moveHandlers.has(card))  card.removeEventListener("mousemove",  moveHandlers.get(card));
-        if (leaveHandlers.has(card)) card.removeEventListener("mouseleave", leaveHandlers.get(card));
+        if (moveHandlers.has(card))
+          card.removeEventListener("mousemove", moveHandlers.get(card)!);
+        if (leaveHandlers.has(card))
+          card.removeEventListener("mouseleave", leaveHandlers.get(card)!);
       });
     };
   }, []);
@@ -70,7 +72,7 @@ export default function LeadershipSection() {
       accentColor: "#4F46E5",
       accentBg: "#EEF0FF",
       tags: ["Aerospace Coatings", "Strategy", "Innovation"],
-      bio: "In aerospace, precision isn’t a choice - it’s a promise. At OrbitalPaint Solutions, we don’t just coat the surface; we craft protection that takes flight.",
+      bio: "In aerospace, precision isn't a choice - it's a promise. At OrbitalPaint Solutions, we don't just coat the surface; we craft protection that takes flight.",
       cta: {
         label: "Connect on LinkedIn",
         href: "https://www.linkedin.com/in/mirzasayeed-beg-9487212a9/",
@@ -382,7 +384,7 @@ export default function LeadershipSection() {
           </div>
 
           <h2 className="ls-heading">
-            Meet the <em>Leaders</em> 
+            Meet the <em>Leaders</em>
           </h2>
 
           <div className="ls-grid">
@@ -390,7 +392,7 @@ export default function LeadershipSection() {
               <div
                 key={i}
                 className="ls-card"
-                ref={(el) => (cardRefs.current[i] = el)}
+                ref={(el) => { cardRefs.current[i] = el; }}
               >
                 <div
                   className="ls-card-stripe"
@@ -412,8 +414,10 @@ export default function LeadershipSection() {
                           src={leader.img}
                           alt={leader.name}
                           onError={(e) => {
-                            e.currentTarget.style.display = "none";
-                            e.currentTarget.nextSibling.style.display = "block";
+                            const target = e.currentTarget as HTMLImageElement;
+                            target.style.display = "none";
+                            const sibling = target.nextSibling as HTMLElement | null;
+                            if (sibling) sibling.style.display = "block";
                           }}
                         />
                         <span
@@ -434,7 +438,7 @@ export default function LeadershipSection() {
                           background: leader.accentBg,
                         }}
                       >
-                        {leader.roleIcon} {leader.role}
+                        {leader.role}
                       </span>
                     </div>
                   </div>
